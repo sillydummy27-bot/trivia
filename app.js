@@ -83,7 +83,6 @@ async function showScreen(index) {
     game.classList.remove('screen-enter');
     void game.offsetWidth;
     game.classList.add('screen-enter');
-    document.title = index === 0 ? 'A little chemistry — a game for two' : index === 6 ? 'A little chemistry — you made it' : `Question ${index} — A little chemistry`;
     if (index > 0) game.focus({ preventScroll: true });
     window.scrollTo({ top: 0, behavior: 'instant' });
   } catch (error) {

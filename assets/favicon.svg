@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#10162f"/><path d="M32 49 13 30C0 12 23 6 32 21c9-15 32-9 19 9Z" fill="#ffd300"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#10162f"/>
+  <text xml:space="preserve" fill="#fff8ee" font-family="monospace" font-size="9" font-weight="bold">
+    <tspan x="7" y="12">  ( (</tspan>
+    <tspan x="7" y="20">   ) )</tspan>
+    <tspan x="7" y="28"> .-----.</tspan>
+    <tspan x="7" y="36"> |     |)</tspan>
+    <tspan x="7" y="44"> |     |)</tspan>
+    <tspan x="7" y="52"> '-----'</tspan>
+    <tspan x="7" y="59">  -----</tspan>
+  </text>
+</svg>

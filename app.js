@@ -1,4 +1,5 @@
 import { submitCompletedGame, retryPendingSubmissions } from './submission.js';
+import { resetTheme } from './theme.js';
 
 const screenIds = ['intro', 'question-1', 'question-2', 'question-3', 'question-4', 'question-5', 'done'];
 const game = document.querySelector('#game');
@@ -19,7 +20,10 @@ function newPlayId() {
 
 function updateProgress(index) {
   progress.replaceChildren();
-  if (index === 0) return;
+  if (index === 0) {
+    progress.setAttribute('aria-label', 'Game progress');
+    return;
+  }
   for (let n = 1; n <= 5; n += 1) {
     const dot = document.createElement('span');
     dot.className = `progress-step ${n < index ? 'is-complete' : n === index ? 'is-current' : ''}`;
@@ -27,7 +31,7 @@ function updateProgress(index) {
     if (n === index) dot.setAttribute('aria-current', 'step');
     progress.append(dot);
   }
-  progress.setAttribute('aria-label', index === 6 ? 'All five questions complete' : `Question ${index} of 5`);
+  progress.setAttribute('aria-label', index === 6 ? 'All five steps complete' : `Step ${index} of 5`);
 }
 
 async function showScreen(index) {
@@ -77,6 +81,7 @@ async function showScreen(index) {
         completed = true;
         answers = {};
         playId = newPlayId();
+        resetTheme();
         showScreen(0);
       },
     }) || (() => {});

@@ -1,20 +1,27 @@
 <section class="q1" aria-labelledby="q1-title">
-  <div class="question-topline"><span>01 / 05</span><span>THE FIRST SPARK</span></div>
+  <div class="question-topline"><span>01 / 05</span></div>
   <div class="q1-layout">
     <div class="q1-heading">
-      <span class="eyebrow">The scene is set</span>
-      <h1 class="screen-title" id="q1-title">Our perfect first <em>adventure?</em></h1>
-      <p class="screen-copy">Pick the one that feels most like us. Follow your heart; it has excellent taste.</p>
-      <div class="q1-scribble" aria-hidden="true">↘</div>
+      <span class="eyebrow">Lets keep the first one simple..</span>
+      <h1 class="screen-title" id="q1-title">What's your favorite <em>color?</em></h1>
+      <p class="screen-copy">Pick the shade that feels right.</p>
+      <div class="q1-color-stage" aria-hidden="true"><span>YOUR STORY, YOUR SHADE</span><strong>✳</strong><i>make it yours.</i></div>
     </div>
-    <form class="q1-form">
-      <div class="options q1-options" role="radiogroup" aria-label="Ideal date">
-        <label class="option-card q1-option"><input type="radio" name="date" value="coffee" required><span class="option-icon" aria-hidden="true">☕</span><span class="option-label">Coffee & conversations</span><span class="option-detail">One cup turns into three.</span><span class="q1-check" aria-hidden="true">↗</span></label>
-        <label class="option-card q1-option"><input type="radio" name="date" value="sunset-walk"><span class="option-icon" aria-hidden="true">☀</span><span class="option-label">A sunset walk</span><span class="option-detail">Somewhere the sky shows off.</span><span class="q1-check" aria-hidden="true">↗</span></label>
-        <label class="option-card q1-option"><input type="radio" name="date" value="bookstore"><span class="option-icon" aria-hidden="true">✳</span><span class="option-label">Lost in a bookstore</span><span class="option-detail">Trading our favorite stories.</span><span class="q1-check" aria-hidden="true">↗</span></label>
-        <label class="option-card q1-option"><input type="radio" name="date" value="spontaneous-trip"><span class="option-icon" aria-hidden="true">✈</span><span class="option-label">A spontaneous trip</span><span class="option-detail">No map, just good company.</span><span class="q1-check" aria-hidden="true">↗</span></label>
+    <div class="q1-choices">
+      <fieldset class="q1-fieldset">
+        <legend>Choose one color</legend>
+        <div class="q1-options">
+          <label class="q1-option"><input type="radio" name="theme" value="pink"><span class="q1-swatch q1-swatch-pink" aria-hidden="true"></span><span>Is it pink? like Rosé</span><span class="q1-check" aria-hidden="true">↗</span></label>
+          <label class="q1-option"><input type="radio" name="theme" value="red"><span class="q1-swatch q1-swatch-red" aria-hidden="true"></span><span>Is it red? like Mrs Kelce</span><span class="q1-check" aria-hidden="true">↗</span></label>
+          <label class="q1-option"><input type="radio" name="theme" value="blue"><span class="q1-swatch q1-swatch-blue" aria-hidden="true"></span><span>Is it blue? like Har Har Mahadev</span><span class="q1-check" aria-hidden="true">↗</span></label>
+        </div>
+      </fieldset>
+      <button class="q1-custom-toggle" type="button" aria-expanded="false" aria-controls="q1-custom">I give up — choose any color <span aria-hidden="true">↗</span></button>
+      <div class="q1-custom" id="q1-custom" hidden>
+        <label for="q1-picker">Choose your color</label>
+        <div class="q1-picker-row"><input id="q1-picker" type="color" value="#8a48e8"><output class="q1-picker-value" for="q1-picker">#8A48E8</output><button class="button button-secondary q1-apply" type="button">Apply <span aria-hidden="true">↗</span></button></div>
       </div>
-      <div class="screen-footer"><span class="hint">Pick one to keep going.</span><button class="button button-primary q1-next" type="submit" disabled>Next question <span aria-hidden="true">→</span></button></div>
-    </form>
+      <div class="screen-footer"><span class="hint q1-hint" aria-live="polite">Pick a color to keep going.</span><button class="button button-primary q1-next" type="button" disabled>Next question <span aria-hidden="true">→</span></button></div>
+    </div>
   </div>
 </section>

@@ -1,10 +1,24 @@
 <section class="q4" aria-labelledby="q4-title">
   <div class="question-topline"><span>04 / 05</span><span>A LITTLE PAUSE</span></div>
-  <div class="q4-placeholder">
-    <span class="eyebrow">More to come</span>
-    <h1 class="screen-title" id="q4-title">Coming <em>soon.</em></h1>
-    <p class="screen-copy">There’s another little question on its way. For now, let’s keep going.</p>
-    <div class="q4-art" aria-hidden="true">✳</div>
-    <button class="button button-primary q4-next" type="button">Continue <span aria-hidden="true">→</span></button>
-  </div>
+  <header class="q4-header">
+    <span class="eyebrow">Question</span>
+    <h1 class="screen-title" id="q4-title">Are you writing to <em>remember,</em> or writing to forget?</h1>
+  </header>
+
+  <form class="q4-form">
+    <fieldset class="q4-options">
+      <legend>Choose your answer</legend>
+      <label class="q4-option"><input type="radio" name="writing-answer" value="damn"><span class="q4-number">01</span><span>damn</span><span class="q4-marker" aria-hidden="true"></span></label>
+      <label class="q4-option"><input type="radio" name="writing-answer" value="let me think about it"><span class="q4-number">02</span><span>let me think about it</span><span class="q4-marker" aria-hidden="true"></span></label>
+      <label class="q4-option"><input type="radio" name="writing-answer" value="actually i do have an answer"><span class="q4-number">03</span><span>actually i do have an answer</span><span class="q4-marker" aria-hidden="true"></span></label>
+    </fieldset>
+
+    <div class="q4-answer" hidden>
+      <div class="q4-answer-heading"><label for="q4-text">Your answer</label><span class="q4-count" aria-live="polite">0 / 50 characters</span></div>
+      <input id="q4-text" name="writing-text" type="text" maxlength="50" autocomplete="off" aria-describedby="q4-text-hint">
+      <span class="hint" id="q4-text-hint">Keep it to 50 characters.</span>
+    </div>
+
+    <div class="screen-footer"><span class="hint q4-hint" aria-live="polite">Choose one answer.</span><button class="button button-primary q4-next" type="submit" disabled>Continue <span aria-hidden="true">→</span></button></div>
+  </form>
 </section>

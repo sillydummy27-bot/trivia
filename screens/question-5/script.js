@@ -1,95 +1,63 @@
-const HOLD_MS = 1500;
-const TAP_GOAL = 3;
-
 export function mount(container, context) {
-  const hold = container.querySelector('.q5-hold');
-  const alternative = container.querySelector('.q5-alternative');
-  const count = container.querySelector('.q5-tap-count');
+  const screen = container.querySelector('.q5');
+  const first = container.querySelector('.q5-first');
+  const second = container.querySelector('.q5-second');
+  const firstNo = container.querySelector('.q5-first-no');
+  const yes = container.querySelector('.q5-final-yes');
+  const video = container.querySelector('.q5-video');
+  const videoIntro = container.querySelector('.q5-video-intro');
   const status = container.querySelector('.q5-status');
-  const play = container.querySelector('.q5-play');
-  let started = 0;
-  let frame = 0;
-  let finishTimer = 0;
-  let taps = 0;
+  const copy = container.querySelector('.q5-copy-text');
+  let approaches = 0;
+  let ready = false;
   let completed = false;
-  let holding = false;
+  let revealTimer = 0;
 
-  const progress = amount => {
-    const percent = `${Math.min(100, Math.round(amount * 100))}%`;
-    play.style.setProperty('--q5-progress', percent);
+  const showVideo = () => {
+    if (!second.hidden) return;
+    first.hidden = true;
+    second.hidden = false;
+    screen.classList.add('q5-is-replay');
+    copy.textContent = 'Fair enough. Watch it once more, then choose again.';
+    video.src = video.dataset.src;
+    videoIntro.focus({ preventScroll: true });
   };
-  const finish = method => {
-    if (completed) return;
+
+  const dodge = () => {
+    if (completed || ready || approaches >= 2 || second.hidden) return;
+    approaches += 1;
+    yes.dataset.position = String(approaches);
+    if (approaches === 1) {
+      status.textContent = 'Oops, it moved. Try again.';
+    } else {
+      status.textContent = 'One more try…';
+      revealTimer = window.setTimeout(() => {
+        ready = true;
+        yes.dataset.position = 'final';
+        status.textContent = 'There it is. Yes is all yours.';
+      }, 550);
+    }
+  };
+
+  const onEnter = event => {
+    if (event.pointerType === 'mouse') dodge();
+  };
+  const onYes = () => {
+    if (completed || second.hidden) return;
+    if (!ready) { dodge(); return; }
     completed = true;
-    holding = false;
-    cancelAnimationFrame(frame);
-    progress(1);
-    status.textContent = 'You did it. My heart is full. ♥';
-    hold.disabled = true;
-    alternative.disabled = true;
-    finishTimer = window.setTimeout(() => context.complete({completed: true, method}), 650);
+    yes.disabled = true;
+    context.complete('completed');
   };
-  const tick = now => {
-    if (!holding || completed) return;
-    const elapsed = now - started;
-    progress(elapsed / HOLD_MS);
-    if (elapsed >= HOLD_MS) finish('hold');
-    else frame = requestAnimationFrame(tick);
-  };
-  const begin = () => {
-    if (holding || completed) return;
-    holding = true;
-    started = performance.now();
-    status.textContent = 'Keep holding…';
-    frame = requestAnimationFrame(tick);
-  };
-  const cancel = () => {
-    if (!holding || completed) return;
-    holding = false;
-    cancelAnimationFrame(frame);
-    progress(0);
-    status.textContent = 'Almost! Try holding a little longer.';
-  };
-  const pointerDown = event => {
-    if (event.button !== 0) return;
-    hold.setPointerCapture?.(event.pointerId);
-    begin();
-  };
-  const keyDown = event => {
-    if (event.key !== ' ' && event.key !== 'Enter') return;
-    event.preventDefault();
-    begin();
-  };
-  const keyUp = event => {
-    if (event.key !== ' ' && event.key !== 'Enter') return;
-    event.preventDefault();
-    cancel();
-  };
-  const tap = () => {
-    if (completed) return;
-    taps += 1;
-    count.textContent = `(${taps} / ${TAP_GOAL})`;
-    status.textContent = taps < TAP_GOAL ? `${TAP_GOAL - taps} more tap${TAP_GOAL - taps === 1 ? '' : 's'} to go.` : 'You did it!';
-    if (taps >= TAP_GOAL) finish('tap');
-  };
-  hold.addEventListener('pointerdown', pointerDown);
-  hold.addEventListener('pointerup', cancel);
-  hold.addEventListener('pointercancel', cancel);
-  hold.addEventListener('lostpointercapture', cancel);
-  hold.addEventListener('keydown', keyDown);
-  hold.addEventListener('keyup', keyUp);
-  hold.addEventListener('blur', cancel);
-  alternative.addEventListener('click', tap);
+
+  firstNo.addEventListener('click', showVideo);
+  yes.addEventListener('pointerenter', onEnter);
+  yes.addEventListener('click', onYes);
   return () => {
-    cancelAnimationFrame(frame);
-    window.clearTimeout(finishTimer);
-    hold.removeEventListener('pointerdown', pointerDown);
-    hold.removeEventListener('pointerup', cancel);
-    hold.removeEventListener('pointercancel', cancel);
-    hold.removeEventListener('lostpointercapture', cancel);
-    hold.removeEventListener('keydown', keyDown);
-    hold.removeEventListener('keyup', keyUp);
-    hold.removeEventListener('blur', cancel);
-    alternative.removeEventListener('click', tap);
+    window.clearTimeout(revealTimer);
+    firstNo.removeEventListener('click', showVideo);
+    yes.removeEventListener('pointerenter', onEnter);
+    yes.removeEventListener('click', onYes);
+    video.removeAttribute('src');
   };
 }

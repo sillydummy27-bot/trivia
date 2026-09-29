@@ -1,4 +1,33 @@
 <section class="q5" aria-labelledby="q5-title">
-  <div class="question-topline"><span>05 / 05</span><span>THE FINAL LITTLE CHALLENGE</span></div>
-  <div class="q5-layout"><div class="q5-copy"><span class="eyebrow">One last thing</span><h1 class="screen-title" id="q5-title">Can you hold on to a <em>little heart?</em></h1><p class="screen-copy">Press and hold the heart until it fills. Some good things are worth a second and a half.</p></div><div class="q5-play"><div class="q5-play-head"><span>THE HEART EXPERIMENT</span><span> / 05</span></div><button class="q5-hold" type="button" aria-label="Press and hold for one and a half seconds to fill the heart" aria-describedby="q5-status"><span class="q5-heart-outline" aria-hidden="true"></span><span class="q5-heart-fill" aria-hidden="true"></span><span class="q5-hold-label">PRESS & HOLD</span></button><div class="q5-meter" aria-hidden="true"><div class="q5-meter-fill"></div></div><p class="q5-status" id="q5-status" role="status">Hold the heart for 1.5 seconds.</p><button class="q5-alternative" type="button">Prefer tapping? Tap here three times <span class="q5-tap-count">(0 / 3)</span></button></div></div>
+  <div class="question-topline"><span>05 / 05</span><span>THE FINAL LITTLE GAME</span></div>
+  <div class="q5-layout">
+    <div class="q5-copy">
+      <span class="eyebrow">One last thing</span>
+      <h1 class="screen-title" id="q5-title">Did you like the <em>Baylon video?</em></h1>
+      <p class="screen-copy q5-copy-text">Be honest. I can take it. Probably.</p>
+    </div>
+    <div class="q5-play">
+      <div class="q5-play-head"><span>THE BAYLON TEST</span><span>05 / 05</span></div>
+      <div class="q5-first">
+        <p class="q5-prompt">So… did you like it?</p>
+        <div class="q5-first-choices">
+          <button class="q5-choice q5-choice-disabled" type="button" disabled>Yes</button>
+          <button class="q5-choice q5-first-no" type="button">No</button>
+        </div>
+      </div>
+      <div class="q5-second" hidden>
+        <p class="q5-video-intro" tabindex="-1">Okay, one more look.</p>
+        <div class="q5-video-wrap">
+          <iframe class="q5-video" title="Baylon video" data-src="https://drive.google.com/file/d/15ZTWRLCqIkDnGLsbIkNEQ8I34QGWrAKk/preview?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <a class="q5-video-link" href="https://drive.google.com/file/d/15ZTWRLCqIkDnGLsbIkNEQ8I34QGWrAKk/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Video not playing? Open it in Google Drive ↗</a>
+        <p class="q5-prompt q5-final-prompt">Now, did you like it?</p>
+        <div class="q5-arena">
+          <button class="q5-choice q5-choice-disabled q5-final-no" type="button" disabled>No</button>
+          <button class="q5-choice q5-final-yes" type="button" data-position="0" aria-describedby="q5-status">Yes</button>
+        </div>
+        <p class="q5-status" id="q5-status" role="status" aria-live="polite">Go on, try Yes.</p>
+      </div>
+    </div>
+  </div>
 </section>

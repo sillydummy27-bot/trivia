@@ -27,7 +27,7 @@ Every folder in `screens/` has three independent files:
 | `style.css` | This screen’s appearance, using its unique class prefix |
 | `script.js` | Validation, reactions, animation, and answer value |
 
-The folders are `intro`, `question-1` through `question-5`, and `done`. Q1 chooses the game theme, Q2 is multiple choice, Q3 is a two-round True or Lie activity, Q4 asks about writing to remember or forget, and Q5 is a hold-or-tap heart challenge. These are editable examples.
+The folders are `intro`, `question-1` through `question-5`, and `done`. Q1 chooses the game theme, Q2 is multiple choice, Q3 is a two-round True or Lie activity, Q4 asks about writing to remember or forget, and Q5 is a Baylon video Yes/No mini game. These are editable examples.
 
 Each script exports `mount(container, context)` and returns a cleanup function. Query elements inside `container`; remove event listeners and cancel timers in cleanup. `context.complete(answer)` saves this page’s JSON-compatible answer and advances. The intro uses `context.start()`, and done uses `context.replay()`. The done page can read `context.answers`.
 
@@ -47,8 +47,8 @@ There is no browser login, analytics SDK, or frontend secret. The public endpoin
 
 ## Fonts and accessibility
 
-DM Sans and IBM Plex Mono are bundled locally with their SIL Open Font License files in `assets/fonts/`. Fonts were sourced from Google Fonts. Controls support keyboard input, and animations respect `prefers-reduced-motion`. The final challenge offers a three-tap alternative to holding.
+DM Sans and IBM Plex Mono are bundled locally with their SIL Open Font License files in `assets/fonts/`. Fonts were sourced from Google Fonts. Controls support keyboard input, and animations respect `prefers-reduced-motion`. In Q5, the first No opens the Drive video; the final Yes dodges twice before becoming a large, clickable button. The player includes a direct Drive link if embedding fails. Q5 records only `completed`, with no interaction details.
 
 ## Manual acceptance check
 
-Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, both Q3 True or Lie rounds and their feedback, each Q4 option and its 50-character text field, and the tap alternative. Confirm the done screen and replay. Check a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses` with the selected Q4 choice and any entered text in `question_4`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.
+Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, both Q3 True or Lie rounds and their feedback, each Q4 option and its 50-character text field, and the Q5 video and two Yes dodges. Confirm the final Yes reaches the done screen and replay works. Check mouse, touch, keyboard, a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses` with the selected Q4 choice and any entered text in `question_4`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.

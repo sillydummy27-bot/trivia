@@ -51,4 +51,4 @@ DM Sans and IBM Plex Mono are bundled locally with their SIL Open Font License f
 
 ## Manual acceptance check
 
-Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, multiple selections, a written note, the Q4 placeholder, and the tap alternative. Confirm the done screen and replay. Check a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.
+Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, a written note, the Q4 placeholder, and the tap alternative. Confirm the done screen and replay. Check a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.

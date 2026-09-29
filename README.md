@@ -27,13 +27,13 @@ Every folder in `screens/` has three independent files:
 | `style.css` | This screen’s appearance, using its unique class prefix |
 | `script.js` | Validation, reactions, animation, and answer value |
 
-The folders are `intro`, `question-1` through `question-5`, and `done`. Q1 chooses the game theme, Q2 is multiple choice, Q3 is a note, Q4 is a coming-soon placeholder, and Q5 is a hold-or-tap heart challenge. These are editable examples.
+The folders are `intro`, `question-1` through `question-5`, and `done`. Q1 chooses the game theme, Q2 is multiple choice, Q3 is a two-round True or Lie activity, Q4 is a coming-soon placeholder, and Q5 is a hold-or-tap heart challenge. These are editable examples.
 
 Each script exports `mount(container, context)` and returns a cleanup function. Query elements inside `container`; remove event listeners and cancel timers in cleanup. `context.complete(answer)` saves this page’s JSON-compatible answer and advances. The intro uses `context.start()`, and done uses `context.replay()`. The done page can read `context.answers`.
 
 `app.js` controls ordering, progress, and transitions. `styles.css` defines shared typography, buttons, and theme tokens; `theme.js` derives the selected colors and runs the WebGL color reveal with a CSS fallback. Keep individual selectors prefixed (`q1-`, `q2-`, etc.) to avoid affecting other pages. If changing Q1 option values, update the optional color-label mapping in the done script, or remove that personalized sentence.
 
-Q1 records `pink`, `red`, `blue`, or a custom six-digit hex color. The theme lasts for the current playthrough and resets on replay or reload. Q4 records `coming-soon` until it is replaced, preserving the five-step response format.
+Q1 records `pink`, `red`, `blue`, or a custom six-digit hex color. The theme lasts for the current playthrough and resets on replay or reload. Q3 records an object with `aboutHer` and `aboutMe` choices, each keyed by statement ID with `T` or `L` values. Q4 records `coming-soon` until it is replaced, preserving the five-step response format.
 
 ## Connect Google Sheets
 
@@ -51,4 +51,4 @@ DM Sans and IBM Plex Mono are bundled locally with their SIL Open Font License f
 
 ## Manual acceptance check
 
-Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, a written note, the Q4 placeholder, and the tap alternative. Confirm the done screen and replay. Check a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.
+Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, both Q3 True or Lie rounds and their feedback, the Q4 placeholder, and the tap alternative. Confirm the done screen and replay. Check a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.

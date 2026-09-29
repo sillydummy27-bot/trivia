@@ -1,7 +1,58 @@
 <section class="q3" aria-labelledby="q3-title">
-  <div class="question-topline"><span>03 / 05</span><span>WORDS FROM THE HEART</span></div>
-  <div class="q3-layout">
-    <div class="q3-left"><span class="eyebrow">Your words, your way</span><h1 class="screen-title" id="q3-title">Leave a little <em>note.</em></h1><p class="screen-copy">What would you tell someone who makes your day brighter?</p><div class="q3-decor" aria-hidden="true">♡<span>✳</span></div></div>
-    <form class="q3-form"><div class="q3-paper"><div class="q3-paper-head"><span>TO: SOMEONE SPECIAL</span><span>03 / 05</span></div><label class="q3-label" for="q3-note">Dear you,</label><textarea id="q3-note" name="note" maxlength="500" placeholder="I think you should know..." aria-describedby="q3-guidance" required></textarea><div class="q3-paper-foot"><span>WITH LOVE, ME</span><span class="q3-counter" aria-live="polite">0 / 500</span></div></div><div class="screen-footer"><span class="hint" id="q3-guidance">Write at least one character.</span><button class="button button-primary q3-next" type="submit" disabled>Seal the note <span aria-hidden="true">→</span></button></div></form>
-  </div>
+  <div class="question-topline"><span>03 / 05</span><span>TWO TRUTHS, ONE LIE</span></div>
+  <header class="q3-header">
+    <span class="eyebrow">Question</span>
+    <h1 class="screen-title" id="q3-title">True or <em>Lie.</em></h1>
+    <p class="screen-copy">Choose T for truth or L for lie for each statement.</p>
+  </header>
+
+  <form class="q3-form">
+    <div class="q3-round" data-round="aboutHer">
+      <div class="q3-round-heading"><span class="q3-round-number">01 / 02</span><h2>About you</h2></div>
+      <p class="q3-round-copy">I made some guesses. Tell me what is true.</p>
+      <div class="q3-list">
+        <fieldset class="q3-statement" data-key="anime">
+          <legend>I think You've never watched anime</legend>
+          <div class="q3-choices"><label><input type="radio" name="anime" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="anime" value="L"><span>L <small>Lie</small></span></label></div>
+        </fieldset>
+        <fieldset class="q3-statement" data-key="texting">
+          <legend>I think you're a great cook</legend>
+          <div class="q3-choices"><label><input type="radio" name="texting" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="texting" value="L"><span>L <small>Lie</small></span></label></div>
+        </fieldset>
+        <fieldset class="q3-statement" data-key="fifaFc">
+          <legend>You cant beat me at FIFA/ FC</legend>
+          <div class="q3-choices"><label><input type="radio" name="fifaFc" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="fifaFc" value="L"><span>L <small>Lie</small></span></label></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="q3-round" data-round="aboutMe" hidden>
+      <div class="q3-round-heading"><span class="q3-round-number">02 / 02</span><h2>What about me?</h2></div>
+      <p class="q3-round-copy">Your turn to guess.</p>
+      <h3 class="q3-reveal-heading" tabindex="-1" hidden>Answers and notes</h3>
+      <div class="q3-list">
+        <fieldset class="q3-statement" data-key="neverHadGirlfriend">
+          <legend>Never had a girlfriend</legend>
+          <div class="q3-choices"><label><input type="radio" name="neverHadGirlfriend" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="neverHadGirlfriend" value="L"><span>L <small>Lie</small></span></label></div>
+          <div class="q3-feedback" hidden><span class="q3-result"></span><p>I actually have never been in a relationship crazy!! right?</p></div>
+        </fieldset>
+        <fieldset class="q3-statement" data-key="neverMet">
+          <legend>We've never met in real life</legend>
+          <div class="q3-choices"><label><input type="radio" name="neverMet" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="neverMet" value="L"><span>L <small>Lie</small></span></label></div>
+          <div class="q3-feedback" hidden><span class="q3-result"></span><p>We actually met but you have this incredible defence so even approaching is scary.</p></div>
+        </fieldset>
+        <fieldset class="q3-statement" data-key="stayingHome">
+          <legend>Love staying at home</legend>
+          <div class="q3-choices"><label><input type="radio" name="stayingHome" value="T"><span>T <small>Truth</small></span></label><label><input type="radio" name="stayingHome" value="L"><span>L <small>Lie</small></span></label></div>
+          <div class="q3-feedback" hidden><span class="q3-result"></span><p>I mean who doesnt love staying at home. And I play tons of fc so you cant beat me anyway.</p></div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="screen-footer">
+      <span class="hint q3-hint" aria-live="polite">Choose T or L for all three statements.</span>
+      <button class="button button-primary q3-submit" type="submit" disabled>What about me? <span aria-hidden="true">→</span></button>
+      <button class="button button-primary q3-continue" type="button" hidden>Continue <span aria-hidden="true">→</span></button>
+    </div>
+  </form>
 </section>

@@ -19,3 +19,10 @@ body{background:var(--paper);transition:background-color .75s}
 .has-theme :is(button,a,input,textarea):focus-visible{outline-color:var(--theme-accent)}
 @media(prefers-reduced-motion:reduce){body,.site-shell{transition:none}}
 .has-theme #game .screen-title em{color:var(--theme-strong)}
+.footer-actions{display:flex;align-items:center;gap:12px;margin-left:auto}
+.music-toggle{display:grid;place-items:center;width:44px;height:44px;padding:8px;border:0;background:transparent;color:var(--ink)}
+.music-toggle img{display:block;width:28px;height:26px;opacity:.3;transition:opacity .2s;image-rendering:pixelated}
+.music-toggle.is-playing img{opacity:1}
+.music-toggle:hover img{opacity:.65}
+.music-toggle.is-playing:hover img{opacity:1}
+

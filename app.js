@@ -1,9 +1,11 @@
 import { submitCompletedGame, retryPendingSubmissions } from './submission.js';
 import { resetTheme } from './theme.js';
+import { initMusic } from './audio.js';
 
 const screenIds = ['intro', 'question-1', 'question-2', 'question-3', 'question-4', 'question-5', 'done'];
 const game = document.querySelector('#game');
 const progress = document.querySelector('#progress');
+const music = initMusic(document.querySelector('#music-toggle'));
 let currentIndex = 0;
 let cleanup = () => {};
 let answers = {};
@@ -61,11 +63,13 @@ async function showScreen(index) {
     activeStyle?.remove();
     activeStyle = style;
     currentIndex = index;
+    if (id === 'done') music.play();
     game.innerHTML = html;
     updateProgress(index);
     let completed = false;
     cleanup = module.mount(game, {
       answers: structuredClone(answers),
+      playMusic: () => music.play(),
       start: () => { if (!completed) { completed = true; showScreen(1); } },
       complete: answer => {
         if (completed || currentIndex !== index || index < 1 || index > 5) return;

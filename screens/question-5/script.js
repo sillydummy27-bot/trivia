@@ -63,6 +63,7 @@ export function mount(container, context) {
     completed = true;
     yes.disabled = true;
     video.removeAttribute('src');
+    context.playMusic();
     heartReveal.hidden = false;
     document.body.append(heartReveal);
     container.inert = true;

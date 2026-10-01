@@ -89,6 +89,10 @@ async function showScreen(index) {
         showScreen(0);
       },
     }) || (() => {});
+    window.gtag?.('event', 'page_view', {
+      page_title: `Trivia – ${id}`,
+      page_location: new URL(`#${id}`, window.location.href).href,
+    });
     game.classList.remove('screen-enter');
     void game.offsetWidth;
     game.classList.add('screen-enter');

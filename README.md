@@ -52,3 +52,8 @@ DM Sans and IBM Plex Mono are bundled locally with their SIL Open Font License f
 ## Manual acceptance check
 
 Play all five steps under the repository subpath, including each Q1 preset and the custom color picker, one Q2 selection, both Q3 True or Lie rounds and their feedback, each Q4 option and its 50-character text field, and the Q5 video and two Yes dodges. Confirm the final Yes reaches the done screen and replay works. Check mouse, touch, keyboard, a narrow viewport, reduced motion, and a browser without WebGL. After connecting Apps Script, complete a game, verify one row in `Responses` with the selected Q4 choice and any entered text in `question_4`, then reload and confirm retries do not add duplicate rows. The included Apps Script is not deployed automatically by GitHub Pages.
+
+## check these files
+c0db9e6d8572fa6bc848a4c34ca8e60e02d3f54c
+for more info
+

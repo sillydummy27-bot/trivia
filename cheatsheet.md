@@ -321,15 +321,3 @@ jobs:
 
 This example assumes a project with a `package-lock.json` and an npm `test` script; it is not a ready-to-run test configuration for every repository.
 
-## Quick exam reminders
-
-- Workflow → jobs → steps.
-- Jobs are parallel by default; steps are sequential.
-- `needs` orders jobs and normally requires successful dependencies.
-- `uses` runs an action; `run` runs commands.
-- PR branch filters match the **base** branch.
-- A matrix multiplies combinations; it does not automatically install software.
-- `env` is optional; use secrets for credentials.
-- Artifacts store run outputs; caches speed up reuse of dependencies.
-- Required checks skipped by branch/path filtering may remain pending and block merging.
-- Grant the smallest necessary token permissions; pin third-party actions to a full commit SHA for stronger security.

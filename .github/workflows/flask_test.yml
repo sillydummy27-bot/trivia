@@ -1,0 +1,15 @@
+name: Pull request check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a basic shell command
+        run: echo "Pull request check passed!"
